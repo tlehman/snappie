@@ -2,6 +2,11 @@
 
 Software for the GoPiGo.
 
+## Dependencies
+
+- Flask
+- OpenCV
+
 ## What this software can do
 
 - [ ] Enable manual control through a web browser.
