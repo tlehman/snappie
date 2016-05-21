@@ -9,7 +9,7 @@ app = Flask(__name__)
 #    returns the static page remote control
 @app.route("/")
 def control():
-    return "Hello, world\n"
+    return open('static/control.html').read()
 
 # PUT /move/{forward, backward, left, right}
 @app.route("/move/<direction>", methods=['PUT'])

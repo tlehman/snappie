@@ -1,0 +1,76 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>GERTY</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+        <script src="js/main.js"></script>
+    </head>
+    <body>
+
+        <div class="header-container">
+            <header class="wrapper clearfix">
+                <h1 class="title">GERTY<img src="gerty.png"></h1>
+                <nav>
+                    <ul>
+                        <li><a href="#">NO-OP</a></li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+
+        <div class="main-container">
+            <div class="main wrapper clearfix">
+
+                <article>
+                    <header></header>
+                    <section></section>
+                </article>
+
+                <aside class="buttons">
+                  <h3>Move</h3>
+                  <table>
+                    <tr>
+                      <td></td>
+                      <td>
+                        <input id="up" type="button" onclick="move('up')" value="&uarr;"></input>
+                      </td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><input id="left" type="button" onclick="move('left')" value="&larr;"></input></td>
+                      <td><input id="stop" type="button" onclick="stop()" value=""></input></td>
+                      <td><input id="right" type="button" onclick="move('right')" value="&rarr;"></input></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>
+                        <input id="down" type="button" onclick="move('down')" value="&darr;"></input>
+                      </td>
+                      <td></td>
+                    </tr>
+                  </table>
+
+                  <h3>Speed</h3>
+                  <input id="speed-down" type="button" onclick="speed('down')" value="-"></input>
+                  <input id="speed-up" type="button" onclick="speed('up')" value="+"></input>
+                    
+                </aside>
+
+            </div> <!-- #main -->
+        </div> <!-- #main-container -->
+
+        <div class="footer-container">
+            <footer class="wrapper">
+                <h3>footer</h3>
+            </footer>
+        </div>
+    </body>
+</html>
