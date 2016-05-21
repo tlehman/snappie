@@ -15,6 +15,7 @@ def control():
 @app.route("/move/<direction>", methods=['PUT'])
 def move(direction):
     message = "Move %s\n" % direction
+    print message
     if direction == 'forward':
         gopigo.fwd()
     elif direction == 'backward':
@@ -31,6 +32,7 @@ def move(direction):
 @app.route("/speed/<change>", methods=['PUT'])
 def speed(change):
     message = "Speed %s\n" % change
+    print message
     if change == "up":
         gopigo.increase_speed()
     elif change == "down":
@@ -44,6 +46,7 @@ def speed(change):
 @app.route("/stop", methods=['PUT'])
 def stop():
     gopigo.stop()
+    print "Stopped"
     return "Stopped\n"
 
 if __name__ == "__main__":
