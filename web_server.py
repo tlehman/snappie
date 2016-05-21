@@ -27,9 +27,9 @@ def static_js(javascript):
 #    returns the static page remote control
 @app.route("/<img>")
 def static_img(img):
-    if img == "/gerty.png":
+    if img == "static/gerty.png":
         return open(img).read()
-    elif img == "/favicon.ico":
+    elif img == "static/favicon.ico":
         return open(img).read()
 
 
