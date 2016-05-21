@@ -11,6 +11,28 @@ app = Flask(__name__)
 def control():
     return open('static/control.html').read()
 
+# GET /css/*
+#    returns the static page remote control
+@app.route("/css/<stylesheet>")
+def static_css(stylesheet):
+    return open('static/css/%s' % stylesheet).read()
+
+# GET /js/*
+#    returns the static page remote control
+@app.route("/js/<javascript>")
+def static_js(javascript):
+    return open("static/js/%s" % javascript).read()
+
+# GET /*.(png.ico)
+#    returns the static page remote control
+@app.route("/<img>")
+def static_img(img):
+    if img == "/gerty.png":
+        return open(img).read()
+    elif img == "/favicon.ico":
+        return open(img).read()
+
+
 # PUT /move/{forward, backward, left, right}
 @app.route("/move/<direction>", methods=['PUT'])
 def move(direction):
