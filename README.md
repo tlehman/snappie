@@ -9,7 +9,7 @@ Software for the GoPiGo.
 
 ## What this software can do
 
-- [ ] Enable manual control through a web browser.
+- [x] Enable manual control through a web browser.
 - [ ] Show a live stream of the camera.
 - [ ] Follow certain objects that it sees.
 
