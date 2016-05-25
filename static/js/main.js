@@ -1,3 +1,7 @@
+function see() {
+    request("GET", "/see");
+}
+
 function move(direction) {
     request("PUT", "/move/" + direction);
 }
@@ -11,10 +15,18 @@ function stop() {
 }
 
 function request(verb, path) {
-    var xhr = new XMLHttpRequest("PUT", "http://robot.local:5000");
+    var xhr = new XMLHttpRequest();
     xhr.open(verb, path);
     xhr.send();
     xhr.onreadystatechange = function() {
-        console.log(xhr.responseText)
+        eyes = document.getElementById("eyes");
+        eyes.src = xhr.responseText;
     }
 }
+
+function main() {
+    see();
+    window.setInterval(see, 1000);
+}
+
+main();

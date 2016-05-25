@@ -2,7 +2,9 @@
 # by tlehman
 # Web server to enable manual control of GoPiGo robot
 from flask import Flask
-import gopigo
+import cv2
+#import gopigo
+import base64
 app = Flask(__name__)
 
 # GET /
@@ -10,6 +12,35 @@ app = Flask(__name__)
 @app.route("/")
 def control():
     return open('static/control.html').read()
+
+def current_img():
+    cap = cv2.VideoCapture(0)
+    cap.set* 1
+    success, frame = cap.read()
+    cap.release()
+    return frame
+
+# Return the current image as a base64-encoded png
+def current_img_b64():
+    b64 = None
+    frame = current_img()
+    if frame != None:
+        png = cv2.imencode('.png', frame)[1]
+        b64 = base64.encodestring(png)
+    return b64
+
+# GET /see
+#    returns the current image
+@app.route("/see")
+def see():
+    enc = current_img_b64()
+    html = None
+
+    if enc == None:
+        html = "Could not capture image"
+    else:
+        html = "data:image/png;base64,%s" % enc
+    return html
 
 # PUT /move/{forward, backward, left, right}
 @app.route("/move/<direction>", methods=['PUT'])

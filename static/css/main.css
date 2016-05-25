@@ -6,6 +6,10 @@ html {
     line-height: 1.4;
 }
 
+#eyes {
+    width: 100%;
+}
+
 .buttons input {
     width: 60px;
     height: 60px;
