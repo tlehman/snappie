@@ -3,7 +3,7 @@
 # Web server to enable manual control of GoPiGo robot
 from flask import Flask
 import cv2
-#import gopigo
+import gopigo
 import base64
 app = Flask(__name__)
 
