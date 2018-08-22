@@ -1,4 +1,4 @@
-# Gerty :smiley:
+# Snappie 🤖
 
 Software for the GoPiGo.
 
