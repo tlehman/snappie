@@ -15,5 +15,5 @@ Software for the GoPiGo.
 
 ## Origin of the name
 
-GERTY is the name of the friendly robot from the 2009 Sci-fi movie Moon.
+My son helped me come up with it, it mixes "Snap circuits", "raspberry pi" and sounds like "Chappie" 
 
