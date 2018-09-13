@@ -1,16 +1,15 @@
 # Snappie 🤖
 
-Software for the GoPiGo.
+Software for the GoPiGo robot
 
 ## Dependencies
 
-- Flask
-- OpenCV
+- BrickPi
 
 ## What this software can do
 
-- [x] Enable manual control through a web browser.
-- [x] Show a live stream of the camera.
+- [x] Enable manual control through an IR USB Remote
+- [ ] Show a live stream of the camera.
 - [ ] Follow certain objects that it sees.
 
 ## Origin of the name
