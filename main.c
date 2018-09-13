@@ -11,7 +11,7 @@
 
 #define EV_BUF_SIZE 16
 
-void usage(int argc, char *argv[]) {
+int usage(int argc, char *argv[]) {
   if (argc < 2) {
     fprintf(stderr,
             "Usage: %s /dev/input/eventN\n"
@@ -22,8 +22,22 @@ void usage(int argc, char *argv[]) {
   }
 }
 
+void handle_input_event(struct input_event event) {
+  fprintf(stderr,
+          "%ld.%06ld: "
+          "type=%02x "
+          "code=%02x "
+          "value=%02x\n",
+          event.time.tv_sec,
+          event.time.tv_usec,
+          event.type,
+          event.code,
+          event.value
+          );
+}
+
 int main(int argc, char *argv[]) {
-  usage(argc, argv)
+  usage(argc, argv);
   int fd, sz;
   unsigned i;
 
@@ -79,19 +93,8 @@ int main(int argc, char *argv[]) {
       goto fine;
     }
 
-    /* Implement code to translate type, code and value */
     for (i = 0; i < sz / sizeof(struct input_event); ++i) {
-      fprintf(stderr,
-              "%ld.%06ld: "
-              "type=%02x "
-              "code=%02x "
-              "value=%02x\n",
-              ev[i].time.tv_sec,
-              ev[i].time.tv_usec,
-              ev[i].type,
-              ev[i].code,
-              ev[i].value
-              );
+      handle_input_event(ev[i]);
     }
   }
 
