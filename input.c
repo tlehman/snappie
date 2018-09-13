@@ -1,3 +1,4 @@
+#include "input.h"
 #include <stdio.h>
 
 #include <string.h>     /* strerror() */

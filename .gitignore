@@ -1,2 +1,4 @@
+tags
 main
 *.swp
+*.o
