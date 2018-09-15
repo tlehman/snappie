@@ -1,11 +1,11 @@
+all: input main
+	gcc input.o main.o -o main 
+
 input:
 	gcc -c input.c
 
 main:
-	g++ -c main.cpp
-
-all: input main
-	g++ input.o main.o -o main
+	gcc -c main.c
 
 clean:
-	rm input.o main
+	rm *.o main
