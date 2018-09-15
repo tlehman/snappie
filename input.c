@@ -123,12 +123,10 @@ int find_remote_control_device(char path[]) {
       return 1;
   }
   while ((de = readdir(dr)) != NULL) {
-    char path[25];
     sprintf(path, "/dev/input/%s", de->d_name);
     if(is_correct_input_type(path)) {
-      printf("%s (correct )\n", path);
-    } else {
-      printf("%s\n", path);
+      printf("found %s as remote control device\n", path);
+      break;
     }
   }
   return closedir(dr);

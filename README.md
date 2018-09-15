@@ -2,10 +2,6 @@
 
 Software for the GoPiGo robot
 
-## Dependencies
-
-- BrickPi
-
 ## What this software can do
 
 - [x] Enable manual control through an IR USB Remote
