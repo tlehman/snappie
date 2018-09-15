@@ -26,6 +26,25 @@ void handle_input_event(struct input_event event) {
           );
 }
 
+int is_correct_input_type(char *input_filename) {
+  int fd;
+  unsigned short id[4];                   /* or use struct input_id */
+  char name[256] = "N/A";
+
+  if ((fd = open(input_filename, O_RDONLY)) < 0) {
+    fprintf(stderr,
+            "ERR %d:\n"
+            "Unable to open `%s'\n"
+            "%s\n",
+            errno, input_filename, strerror(errno)
+            );
+  }
+  ioctl(fd, EVIOCGNAME(sizeof(name)), name);
+
+  close(fd);
+  return strcmp(name, "123 COM Smart Control") == 0;
+}
+
 int loop_read_input_file(char *input_filename) {
   int fd, sz;
   unsigned i;
@@ -91,4 +110,26 @@ int loop_read_input_file(char *input_filename) {
   close(fd);
 
   return errno;
+}
+
+#include <sys/types.h>
+#include <dirent.h>
+
+int find_remote_control_device(char path[]) {
+  struct dirent *de;
+  DIR *dr = opendir("/dev/input");
+  if (dr == NULL) {
+      printf("Could not open current directory" );
+      return 1;
+  }
+  while ((de = readdir(dr)) != NULL) {
+    char path[25];
+    sprintf(path, "/dev/input/%s", de->d_name);
+    if(is_correct_input_type(path)) {
+      printf("%s (correct )\n", path);
+    } else {
+      printf("%s\n", path);
+    }
+  }
+  return closedir(dr);
 }

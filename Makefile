@@ -1,5 +1,5 @@
 all: input main
-	gcc input.o main.o -o main 
+	gcc input.o main.o -o main
 
 input:
 	gcc -c input.c
