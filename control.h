@@ -1,6 +1,6 @@
 
 extern void init_robot();
-extern void move_fwd();
+extern void move_forward();
 extern void move_left();
 extern void move_right();
 extern void move_back();

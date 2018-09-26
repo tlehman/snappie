@@ -1,17 +1,17 @@
-all: input control gopigo main
+all: main
 	gcc input.o control.o gopigo.o main.o -o main 
 
-input:
+main: input
+	gcc -c main.c
+
+input: control 
 	gcc -c input.c
+
+control: gopigo
+	gcc -c control.c
 
 gopigo:
 	gcc -c gopigo.c
-
-control:
-	gcc -c control.c
-
-main:
-	gcc -c main.c
 
 clean:
 	rm *.o main

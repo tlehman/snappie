@@ -8,7 +8,7 @@ void init_robot() {
     led_on(1);
 }
 
-void move_fwd() {
+void move_forward() {
     fwd();
 }
 
